@@ -1,6 +1,7 @@
 body {
-   background-image: url("gfback.jpg");
-   background-color: #cccccc;
+    background-image: url("gfback.jpg");
+    background-color: #efefef;
+    color: black;
 }
 
 h1, h2 {
@@ -31,4 +32,8 @@ p {
     padding: 0.6rem;
     background-color: #efefef;
     text-align: center;
+}
+
+textarea {
+    font-size: 80%;
 }
