@@ -1,0 +1,35 @@
+<html>
+<head>
+	<meta charset="UTF-8"> 
+	<title>Gravity Falls Diary #3 ancient ciphers<</title>
+</head>
+
+<body>
+	<script src="ancient_ciphers.js"></script>
+
+	<h1 style="text-align: center;">Гравити Фолз. Шифры Дневника №3</h1>
+	<h2 style="text-align: center;">Атбаш, Цезарь и Виженер</h2>
+
+	<p style="text-align: center;">
+		<textarea cols="80" name="inText" id="inText" rows="12"></textarea>
+	</p>
+
+	<p style="text-align: center;">
+		<input type="text" id="keyVigenere" value="VigenereKey">
+	</p>
+
+	<p style="text-align: center;">
+		<select name="lstCiphers" id="lstCiphers" size="1">
+			<option selected="selected" value="atbash">Atbash</option>
+			<option value="caesar">Caesar</option>
+			<option value="vigenere">Vigenere</option>
+		</select>
+
+		<button onclick="code('decode')">Decode</button>
+		<button onclick="code('encode')">Encode</button>
+	</p>
+
+	<p style="text-align: center;" id="outText"></p>
+
+	</body>
+</html>
