@@ -16,6 +16,13 @@ p {
     font-size: 150%;
 }
 
+.captions {
+    text-align: center;
+    color: #ff0000;
+    text-shadow: 1px 1px black;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
 .footer {
     position: absolute;
     right: 0;
