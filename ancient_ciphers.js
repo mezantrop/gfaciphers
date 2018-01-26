@@ -52,7 +52,7 @@ function ciphers(cipher, abcDict, inText, inKey, decrypt, shiftCaeser) {
             var si = [];
 
             for (c = 0; c < inTextLength; c++) {
-                if (ignore.indexOf(inText[c]) > 0)
+                if (ignore.indexOf(inText[c]) >= 0)
                     // Ignore punctuation
                     ti.push(inText[c]);
                 else
@@ -68,15 +68,16 @@ function ciphers(cipher, abcDict, inText, inKey, decrypt, shiftCaeser) {
             var ps = 0;
             for (pt = 0; pt < inTextLength; pt++) {
                 if (ps == si.length) ps = 0;
-                if (ignore.indexOf(ti[pt]) > 0)
+                if (ignore.indexOf(ti[pt]) >= 0)
                     // Pass punctuation mark transparently
                     result += ti[pt];
-                else
+                else {
                     if (decrypt == true)
-                        result += abcDict[(ti[pt] - si[ps] + abcLength) % abcLength];
+                        result += abcDict[((ti[pt] - si[ps] + abcLength) % abcLength)];
                     else
                         result += abcDict[(ti[pt] + si[ps]) % abcLength];
                     ps += 1;
+                }
             }
             break;
 
@@ -100,10 +101,10 @@ function code(action) {
 
     switch(action.toLowerCase()) {
         case "decode":
-            outText.innerHTML = ciphers(cipher, abcDict, inText, inKey, true, shiftCaeser)
+            outText.innerHTML = ciphers(cipher, abcDict, inText, inKey.toLowerCase(), true, shiftCaeser)
             break;
         case "encode":
-            outText.innerHTML = ciphers(cipher, abcDict, inText, inKey, false, abc.length - shiftCaeser)
+            outText.innerHTML = ciphers(cipher, abcDict, inText, inKey.toLowerCase(), false, abc.length - shiftCaeser)
             break;
         default:
             outText.innerHTML = "Something went wrong!"
