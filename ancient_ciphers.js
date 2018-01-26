@@ -1,3 +1,19 @@
+/*
+  Gravity Falls Ciphers / Шифры Гравити Фолз
+  Caesar, Atbash, Vigenere for kids
+
+  -----------------------------------------------------------------------------
+  "THE BEER-WARE LICENSE" (Revision 42):
+  zmey20000@yahoo.com wrote this file. As long as you retain this notice you
+  can do whatever you want with this stuff. If we meet some day, and you think
+  this stuff is worth it, you can buy me a beer in return Mikhail Zakharov
+  -----------------------------------------------------------------------------
+*/
+
+/*
+  2018.01.26    v0.1    Mikhail Zakharov <zmey20000@yahoo.com>  Port from Python
+*/
+
 function ciphers(cipher, abcDict, inText, inKey, decrypt, shiftCaeser) {
     var abcLength = abcDict.length;
     var abcOrig = abcDict.slice();
