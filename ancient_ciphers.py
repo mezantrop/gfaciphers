@@ -11,6 +11,7 @@
 # -----------------------------------------------------------------------------
 #
 # 2018.01.14    v0.1    Mikhail Zakharov <zmey20000@yahoo.com>  Initial release
+# 2018.01.26    v0.1.1  Mikhail Zakharov <zmey20000@yahoo.com>  Caesar encode
 #
 
 import sys
@@ -18,6 +19,8 @@ import sys
 
 abc_dictionary = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'.lower()
 # abc_dictionary = 'abcdefghijklmnopqrstuvwxyz'.lower()
+
+caesar_shift = 23
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -89,8 +92,11 @@ def vigenere(abc, text, secret, decrypt=False):
 
 def usage():
     print('Помощь:\n'
-          '\tancient_ciphers.py a|c|v "Текст" "Ключ"\n'
-          'Укажи "а", "c" или "v" чтобы выбрать метод кодирования: Атбаш, Цезаря или Виженера')
+          '\tancient_ciphers.py a "Текст"\n'
+          '\tancient_ciphers.py c "Текст" [закодировать]\n'
+          '\tancient_ciphers.py v "Текст" "Ключ" [закодировать]\n'
+          'Укажи "а", "c" или "v" чтобы выбрать метод кодирования: Атбаш, Цезаря или Виженера\n'
+          'Чтобы зашифровать послание методом Цезаря или Виженера, добавь "закодировать" в конце команды')
 
     sys.exit(1)
 
@@ -106,8 +112,15 @@ if cipher == 'a':
     encrypted_dictionary = dictionary_atbash(abc_dictionary)
     print('Код Атбаш:', cipher_ca(text, encrypted_dictionary, abc_dictionary))
 elif cipher == 'c':
-    encrypted_dictionary = dictionary_caesar(abc_dictionary, 23)
+    if len(sys.argv) == 3:
+        # We want Caesar to be decrypted
+        encrypted_dictionary = dictionary_caesar(abc_dictionary, caesar_shift)
+    elif len(sys.argv) == 4:
+        # We want Caesar encryption
+        encrypted_dictionary = dictionary_caesar(abc_dictionary, len(abc_dictionary) - caesar_shift)
+
     print('Код Цезаря:', cipher_ca(text, encrypted_dictionary, abc_dictionary))
+
 elif cipher == 'v':
     if len(sys.argv) == 3:
         print('Вы забыли указать ключ для шифра Виженера!')
