@@ -1,0 +1,19 @@
+
+
+body {
+   background-image: url("gfback.jpg");
+   background-color: #cccccc;
+}
+
+h1, h2 {
+    color: #ff0000;
+    text-shadow: 2px 2px black;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+p {
+    color: #ff0000;
+    text-shadow: 2px 2px black;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 150%;
+}
