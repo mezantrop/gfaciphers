@@ -12,6 +12,7 @@
 
 /*
   2018.01.26    v0.1    Mikhail Zakharov <zmey20000@yahoo.com>  Port from Python
+  2018.01.26    v0.2    Mikhail Zakharov <zmey20000@yahoo.com>  Input text to lower case
 */
 
 function ciphers(cipher, abcDict, inText, inKey, decrypt, shiftCaeser) {
