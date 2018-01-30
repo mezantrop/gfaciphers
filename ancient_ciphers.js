@@ -117,10 +117,10 @@ function code(action) {
 
     switch(action.toLowerCase()) {
         case "decode":
-            outText.innerHTML = ciphers(cipher, abcDict, inText, inKey.toLowerCase(), true, shiftCaeser)
+            outText.innerHTML = ciphers(cipher, abcDict, inText.toLowerCase(), inKey.toLowerCase(), true, shiftCaeser)
             break;
         case "encode":
-            outText.innerHTML = ciphers(cipher, abcDict, inText, inKey.toLowerCase(), false, abc.length - shiftCaeser)
+            outText.innerHTML = ciphers(cipher, abcDict, inText.toLowerCase(), inKey.toLowerCase(), false, abc.length - shiftCaeser)
             break;
         default:
             outText.innerHTML = "Something went wrong!"
