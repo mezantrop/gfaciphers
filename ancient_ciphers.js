@@ -116,6 +116,9 @@ function code(action) {
     var outText = document.getElementById("outText");
     var shiftCaeser = 23;
 
+    inText = inText.replace(/<[^>]+>/g, '');
+    inKey = inKey.replace(/<[^>]+>/g, '');
+  
     switch(action.toLowerCase()) {
         case "decode":
             outText.innerHTML = ciphers(cipher, abcDict, inText.toLowerCase(), inKey.toLowerCase(), true, shiftCaeser)
